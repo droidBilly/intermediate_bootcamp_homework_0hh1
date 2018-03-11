@@ -2,7 +2,9 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {login} from '../actions/users'
 import LoginForm from './LoginForm'
-import {Redirect} from 'react-router-dom'
+import GameField from './GameField'
+import SignupPage from './SignupPage'
+import {Link, Redirect} from 'react-router-dom'
 
 class LoginPage extends PureComponent {
 	handleSubmit = (data) => {
@@ -11,7 +13,7 @@ class LoginPage extends PureComponent {
 
 	render() {
 		if (this.props.currentUser) return (
-			<Redirect to="/" />
+			<Redirect to="/0hh1/" component={GameField} />
 		)
 
 		return (
@@ -19,6 +21,10 @@ class LoginPage extends PureComponent {
 				<h1>Login</h1>
 
 				<LoginForm onSubmit={this.handleSubmit} />
+
+				<br />
+				<p>Dont have a Profile yet? Go and</p>
+        <Link to={'/signup/'} component={SignupPage} ><button>SIGN UP!</button></Link>
 			</div>
 		)
 	}
