@@ -36,10 +36,6 @@ router.get("/users/:id", requireUser, (req, res) => {
         res.send({
           id: user.id,
           email: user.email,
-          username: user.info.username,
-          location: user.info.location,
-          age: user.info.age,
-          preferences: [],
           jwt: sign(user.id)
         });
       } else {
@@ -67,7 +63,8 @@ router.post("/users", (req, res) => {
   .then(entity => {
   	res.send({
   		id: entity.id,
-  		email: entity.email
+  		email: entity.email,
+      jwt: sign(entity.id),
   	})
   })
   .catch(err => {
