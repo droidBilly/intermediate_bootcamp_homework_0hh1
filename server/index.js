@@ -5,6 +5,7 @@ const sign = require('./jwt').sign
 const Users = require("./users/model");
 const bodyParser = require('body-parser')
 const userRouter = require('./users/router')
+const gamesRouter = require('./games/router')
 
 app.use(bodyParser.json())
 
@@ -50,3 +51,4 @@ app.use(function (req, res, next) {
 })
 
 app.use(userRouter)
+app.use(gamesRouter)

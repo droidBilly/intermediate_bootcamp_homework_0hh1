@@ -4,6 +4,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createGame } from '../actions/game'
+import { sendBoard } from '../actions/game'
 import './CreateGameButton.css'
 
 export class CreateGameButton extends PureComponent {
@@ -14,6 +15,7 @@ export class CreateGameButton extends PureComponent {
 
   handleClick = () => {
     this.props.createGame(6)
+    console.log(this.props)
   }
 
   render() {
@@ -28,4 +30,4 @@ export class CreateGameButton extends PureComponent {
   }
 }
 
-export default connect(null, { createGame })(CreateGameButton)
+export default connect(null, { createGame, sendBoard })(CreateGameButton)

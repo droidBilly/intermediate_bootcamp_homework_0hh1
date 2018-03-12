@@ -9,14 +9,14 @@ const Games = sequelize.define('games', {
     sidebar: {
       type: Sequelize.JSON,
       allowNull: true
-    }
+    },
     locked: {
       type: Sequelize.JSON,
       allowNull: true
-    }
+    },
     userId: {
       type: Sequelize.INTEGER,
-      allowNull: false
+      allowNull: true
     }
   },{
   tableName: 'games',
@@ -24,4 +24,4 @@ const Games = sequelize.define('games', {
 })
 
 
-module.exports = Users
+module.exports = Games

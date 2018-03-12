@@ -10,22 +10,22 @@ const requireUser = (req, res, next) => {
     });
 };
 
-router.post("/games", requireUser, (req, res) => {
+router.post("/games", (req, res) => {
   const games = {
 	  board: req.body.board,
 	  sidebar: req.body.sidebar,
     locked: req.body.locked,
-    userId: req.user.id
+    userid: req.body.userId,
   }
   Games
-  .create(game)
+  .create(games)
   .then(entity => {
   	res.send({
   		gameId: entity.id,
   		board: entity.board,
   		sidebar: entity.sidebar,
   		locked: entity.locked,
-      userId: entity.userId
+      userid: entity.userid,
   	})
   })
   .catch(err => {
